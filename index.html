@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reparadora de Calzado La Nueva – Costa Rica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --brown:      #5c3d1e;
+      --brown-dark: #3a2410;
+      --tan:        #c4935a;
+      --tan-light:  #e8c99a;
+      --cream:      #faf6f0;
+      --white:      #ffffff;
+      --black:      #1a1008;
+      --green:      #2d6a4f;
+      --text:       #2c1a0e;
+      --shadow:     0 8px 40px rgba(92,61,30,0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 200;
+      background: var(--brown-dark);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 2.5rem; height: 64px;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 0.75rem; }
+    .nav-icon { font-size: 1.6rem; line-height: 1; }
+    .nav-brand-text {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--tan-light); letter-spacing: 1px;
+      text-transform: uppercase; line-height: 1.2;
+    }
+    .nav-brand-text span {
+      display: block; font-size: 0.65rem;
+      color: var(--tan); letter-spacing: 3px; font-weight: 500;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a {
+      text-decoration: none; color: rgba(255,255,255,0.7);
+      font-weight: 600; font-size: 0.88rem; letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--tan-light); }
+    .nav-cta {
+      background: var(--tan) !important; color: var(--brown-dark) !important;
+      padding: 0.45rem 1.2rem; border-radius: 4px; font-weight: 700 !important;
+    }
+    .nav-cta:hover { background: var(--tan-light) !important; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: var(--brown-dark);
+      display: flex; align-items: center;
+      padding: 7rem 2.5rem 5rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: repeating-linear-gradient(
+        45deg, transparent, transparent 2px,
+        rgba(255,255,255,0.015) 2px, rgba(255,255,255,0.015) 4px
+      );
+      pointer-events: none;
+    }
+    .hero-bg-text {
+      position: absolute; right: -2rem; top: 50%; transform: translateY(-50%);
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(8rem, 20vw, 18rem);
+      font-weight: 700; color: rgba(255,255,255,0.03);
+      letter-spacing: -4px; line-height: 1;
+      pointer-events: none; white-space: nowrap; user-select: none;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 680px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--tan); margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 32px; height: 2px; background: var(--tan);
+    }
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      color: var(--white); line-height: 1.0;
+      font-weight: 700; margin-bottom: 1.5rem;
+      text-transform: uppercase; letter-spacing: -1px;
+    }
+    .hero h1 em { font-style: normal; color: var(--tan); display: block; }
+    .hero p {
+      color: rgba(255,255,255,0.72);
+      font-size: 1.1rem; line-height: 1.8;
+      margin-bottom: 2.5rem; max-width: 480px;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--tan); color: var(--brown-dark);
+      padding: 0.9rem 2rem; border-radius: 4px;
+      font-weight: 700; font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--tan-light); transform: translateY(-2px); }
+    .btn-secondary {
+      background: transparent; color: rgba(255,255,255,0.8);
+      padding: 0.9rem 2rem; border-radius: 4px;
+      font-weight: 600; font-size: 1rem;
+      text-decoration: none; border: 1px solid rgba(255,255,255,0.25);
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--tan); color: var(--tan); }
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-top: 3.5rem;
+      padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .hstat-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2rem; color: var(--tan); font-weight: 700;
+    }
+    .hstat-lbl { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 0.1rem; }
+
+    /* SERVICES */
+    .services { padding: 6rem 2.5rem; background: var(--cream); }
+    .section-eyebrow {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--tan);
+      margin-bottom: 0.75rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .section-eyebrow::before {
+      content: ''; display: block; width: 24px; height: 2px; background: var(--tan);
+    }
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--brown-dark); line-height: 1.1;
+      text-transform: uppercase; letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
+    }
+    .section-sub {
+      color: #7a5c3a; font-size: 1rem; line-height: 1.7;
+      max-width: 480px; margin-bottom: 3.5rem;
+    }
+
+    /* Photo services layout */
+    .services-list { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
+    .svc-row {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 320px; overflow: hidden;
+      border-radius: 12px; margin-bottom: 1.5rem;
+      box-shadow: 0 4px 24px rgba(92,61,30,0.1);
+    }
+    .svc-row.reverse { direction: rtl; }
+    .svc-row.reverse > * { direction: ltr; }
+    .svc-img {
+      position: relative; overflow: hidden; min-height: 280px;
+    }
+    .svc-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+    .svc-row:hover .svc-img img { transform: scale(1.04); }
+    .svc-num {
+      position: absolute; top: 1.2rem; left: 1.2rem;
+      font-family: 'Oswald', sans-serif;
+      font-size: 3.5rem; font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      line-height: 1; text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+    .svc-body {
+      background: var(--white);
+      padding: 2.5rem 2.75rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .svc-tag {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--tan);
+      margin-bottom: 0.75rem;
+    }
+    .svc-body h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.7rem; color: var(--brown-dark);
+      text-transform: uppercase; letter-spacing: -0.5px;
+      margin-bottom: 0.75rem; line-height: 1.1;
+    }
+    .svc-body p {
+      color: #6a4a2a; font-size: 0.97rem; line-height: 1.75;
+      margin-bottom: 1.25rem;
+    }
+    .svc-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--tan); font-weight: 700; font-size: 0.88rem;
+      text-decoration: none; letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: gap 0.2s;
+    }
+    .svc-link:hover { gap: 0.8rem; }
+
+    @media (max-width: 768px) {
+      .svc-row { grid-template-columns: 1fr; }
+      .svc-row.reverse { direction: ltr; }
+      .svc-img { min-height: 220px; }
+      .svc-body { padding: 1.75rem; }
+    }
+
+    /* WHY US */
+    .whyus { background: var(--brown-dark); padding: 6rem 2.5rem; color: var(--white); }
+    .whyus-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .whyus .section-title { color: var(--white); }
+    .whyus .section-sub { color: rgba(255,255,255,0.6); }
+    .why-list { list-style: none; }
+    .why-list li {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.97rem; color: rgba(255,255,255,0.8); line-height: 1.6;
+    }
+    .why-list li:last-child { border-bottom: none; }
+    .why-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem; color: var(--tan); font-weight: 700;
+      flex-shrink: 0; line-height: 1; margin-top: 2px;
+    }
+    .whyus-visual {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px; padding: 3rem; text-align: center;
+    }
+    .big-shoe { font-size: 7rem; display: block; margin-bottom: 1.5rem; }
+    .whyus-visual h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8rem; color: var(--tan-light);
+      text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .whyus-visual p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.7; }
+    .price-tag {
+      display: inline-block; margin-top: 1.5rem;
+      background: var(--tan); color: var(--brown-dark);
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem; font-weight: 700;
+      padding: 0.5rem 1.5rem; border-radius: 4px;
+      text-transform: uppercase; letter-spacing: 1px;
+      text-decoration: none;
+    }
+
+    /* LOCATION */
+    .location-section { padding: 6rem 2.5rem; background: var(--cream); }
+    .location-inner { max-width: 720px; margin: 0 auto; }
+    .location-inner .section-sub { margin-bottom: 2rem; }
+    .map-wrap {
+      border-radius: 8px; overflow: hidden;
+      box-shadow: var(--shadow); margin-bottom: 2rem;
+      border: 3px solid var(--tan-light);
+    }
+    .map-wrap iframe { display: block; width: 100%; height: 340px; border: 0; }
+    .location-info { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .linfo {
+      background: var(--white); border-radius: 6px;
+      padding: 1rem 1.5rem; flex: 1; min-width: 160px;
+      border-top: 3px solid var(--tan);
+    }
+    .linfo-label {
+      font-size: 0.72rem; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--tan); font-weight: 700;
+    }
+    .linfo-val {
+      font-size: 0.97rem; color: var(--brown-dark);
+      font-weight: 600; margin-top: 0.3rem; line-height: 1.5;
+    }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp-float {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+      background: #25d366; color: white;
+      width: 62px; height: 62px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-size: 2rem;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.5);
+      transition: transform 0.2s;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); }
+
+    /* FOOTER */
+    footer {
+      background: var(--black); color: rgba(255,255,255,0.5);
+      text-align: center; padding: 2rem; font-size: 0.85rem;
+    }
+    footer strong { color: var(--tan); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 0 1.2rem; }
+      .nav-links { display: none; }
+      .services, .whyus, .location-section { padding: 4rem 1.2rem; }
+      .hero { padding: 7rem 1.2rem 4rem; }
+      .whyus-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-stats { gap: 1.5rem; }
+      .hero-bg-text { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-brand">
+      <div class="nav-icon">👟</div>
+      <div class="nav-brand-text">
+        La Nueva
+        <span>Reparadora de Calzado</span>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+      <li><a href="https://wa.me/50661380670" class="nav-cta">💬 WhatsApp</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-text">CALZADO</div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Reparadora de Calzado · Costa Rica</div>
+      <h1>
+        Le damos nueva vida
+        <em>a su calzado</em>
+      </h1>
+      <p>Reparamos, restauramos y detallamos todo tipo de calzado. Rápido, económico y con acabado profesional. ¡Sus zapatos favoritos como nuevos!</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/50661380670?text=Hola!%20Quiero%20información%20sobre%20una%20reparación%20de%20calzado" class="btn-primary">💬 Escribinos al WhatsApp</a>
+        <a href="#servicios" class="btn-secondary">Ver Servicios →</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hstat-num">+15</div>
+          <div class="hstat-lbl">Años de experiencia</div>
+        </div>
+        <div>
+          <div class="hstat-num">Rápido</div>
+          <div class="hstat-lbl">Entrega express</div>
+        </div>
+        <div>
+          <div class="hstat-num">100%</div>
+          <div class="hstat-lbl">Garantizado</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="servicios">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div class="section-eyebrow">Lo que hacemos</div>
+      <h2 class="section-title">Nuestros Servicios</h2>
+      <p class="section-sub">Trabajamos con todo tipo de calzado — deportivo, formal, de cuero, sintético y más. Consultenos sin compromiso.</p>
+    </div>
+    <div class="services-list">
+
+      <!-- 1 -->
+      <div class="svc-row">
+        <div class="svc-img">
+          <span class="svc-num">01</span>
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700&q=80" alt="Cambio de suela"/>
+        </div>
+        <div class="svc-body">
+          <div class="svc-tag">Servicio 01</div>
+          <h3>Cambio de Suela</h3>
+          <p>Reemplazamos suelas gastadas o dañadas con materiales de primera calidad. Su calzado favorito como nuevo, por dentro y por fuera.</p>
+          <a href="https://wa.me/50661380670?text=Hola!%20Quiero%20información%20sobre%20cambio%20de%20suela" class="svc-link">Consultar precio →</a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="svc-row reverse">
+        <div class="svc-img">
+          <span class="svc-num">02</span>
+          <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=700&q=80" alt="Limpieza de calzado"/>
+        </div>
+        <div class="svc-body">
+          <div class="svc-tag">Servicio 02</div>
+          <h3>Detallado y Limpieza</h3>
+          <p>Limpieza profunda, restauración del color y brillo profesional para calzado de cuero, gamuza y sintético. Sus zapatos brillarán otra vez.</p>
+          <a href="https://wa.me/50661380670?text=Hola!%20Quiero%20información%20sobre%20limpieza%20de%20calzado" class="svc-link">Consultar precio →</a>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="svc-row">
+        <div class="svc-img">
+          <span class="svc-num">03</span>
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=700&q=80" alt="Calzado deportivo"/>
+        </div>
+        <div class="svc-body">
+          <div class="svc-tag">Servicio 03</div>
+          <h3>Calzado Deportivo</h3>
+          <p>Especialistas en tenis y zapatos deportivos — limpieza profunda, pegado de suelas y restauración de colores para que luzcan como recién comprados.</p>
+          <a href="https://wa.me/50661380670?text=Hola!%20Quiero%20información%20sobre%20reparación%20de%20calzado%20deportivo" class="svc-link">Consultar precio →</a>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="svc-row reverse">
+        <div class="svc-img">
+          <span class="svc-num">04</span>
+          <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=700&q=80" alt="Tacones y costura"/>
+        </div>
+        <div class="svc-body">
+          <div class="svc-tag">Servicio 04</div>
+          <h3>Tacones, Costura y Pegado</h3>
+          <p>Reparación de tacones, costuras rotas y despegues en cualquier parte del calzado. Acabado profesional y materiales resistentes.</p>
+          <a href="https://wa.me/50661380670?text=Hola!%20Quiero%20información%20sobre%20reparación%20de%20tacones%20o%20costura" class="svc-link">Consultar precio →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="whyus" id="nosotros">
+    <div class="whyus-inner">
+      <div>
+        <div class="section-eyebrow" style="color:var(--tan);">¿Por qué elegirnos?</div>
+        <h2 class="section-title">Experiencia y calidad que se nota</h2>
+        <p class="section-sub">No botamos lo que se puede arreglar. Cada par de zapatos tiene historia — nosotros la continuamos.</p>
+        <ul class="why-list">
+          <li><span class="why-num">01</span><span>Más de 15 años reparando calzado en Costa Rica con clientes satisfechos</span></li>
+          <li><span class="why-num">02</span><span>Materiales de primera calidad — suelas, pegamentos y tintes profesionales</span></li>
+          <li><span class="why-num">03</span><span>Precios justos y honestos, sin cobros sorpresa. Presupuesto gratis por WhatsApp</span></li>
+          <li><span class="why-num">04</span><span>Entrega rápida — la mayoría de reparaciones listas en 24 a 48 horas</span></li>
+          <li><span class="why-num">05</span><span>Trabajamos con todo tipo de calzado: cuero, sintético, deportivo, formal y más</span></li>
+        </ul>
+      </div>
+      <div class="whyus-visual">
+        <span class="big-shoe">🥿</span>
+        <h3>Consultenos sin compromiso</h3>
+        <p>Mándenos una foto de su calzado por WhatsApp y le damos el presupuesto al instante. Sin costo, sin compromiso.</p>
+        <a href="https://wa.me/50661380670?text=Hola!%20Le%20mando%20foto%20de%20mis%20zapatos%20para%20presupuesto" class="price-tag">📸 Enviar Foto Ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="location-section" id="ubicacion">
+    <div class="location-inner">
+      <div class="section-eyebrow">¿Dónde estamos?</div>
+      <h2 class="section-title">Ubícanos</h2>
+      <p class="section-sub">Estamos ubicados al frente de Guido’S Market, 100 mts al oeste, Del antiguo seguro, Provincia de Cartago, La Unión, 30301</p>
+      <div class="location-info">
+        <div class="linfo">
+          <div class="linfo-label">Teléfono / WhatsApp</div>
+          <div class="linfo-val">📱 8732-0693</div>
+        </div>
+        <div class="linfo">
+          <div class="linfo-label">Horario</div>
+          <div class="linfo-val">Lun–Sáb: 8am – 6pm</div>
+        </div>
+        <div class="linfo">
+          <div class="linfo-label">Dirección</div>
+          <div class="linfo-val">Tres Ríos</div>
+        </div>
+      </div>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6268.002634049081!2d-83.99372435664375!3d9.908593857995111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e10dc48027f3%3A0x9e4382dbedadf50f!2sReparadora%20de%20Calzado%20La%20Nueva!5e1!3m2!1ses-419!2scr!4v1781389949507!5m2!1ses-419!2scr"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <a href="https://wa.me/50661380670?text=Buenas,%20Quisiera%20información%20sobre%20reparación%20de%20calzado" class="btn-primary" style="display:inline-flex;">
+        💬 Escribinos por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/50661380670" class="whatsapp-float" title="Contactar por WhatsApp">💬</a>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 <strong>Reparadora de Calzado La Nueva</strong> — Costa Rica. Porque todo buen zapato merece una segunda oportunidad. 👟</p>
+  </footer>
+
+</body>
+</html>
